@@ -1,4 +1,5 @@
 const { mongoose } = require('.././server/mongoose');
+const validator  = require('validator');
 
 var Schema = mongoose.Schema;
 
@@ -7,7 +8,8 @@ var todoSchema = new Schema({
         type : String,
         required : true,
         trim : true,
-        minlength : 1
+        minlength : 1,
+        
         
     },
     completed : {
@@ -15,7 +17,11 @@ var todoSchema = new Schema({
         required : true,
         trim : true,
         minlength : 1,
-        default : false
+        default : false,
+        validate : {
+            validator : validator.isBoolean,
+            message : '{VALUE} is not a valid boolean value.'
+        }
     },
     completedAt : {
         type : String,

@@ -60,7 +60,7 @@ router.post('/add', function(req, res, next) {
     completed : req.body.completed,
     completedAt : new Date().getTime()
   }
- console.log('from postman',req.body);
+//  console.log('from postman',req.body);
   var newTodo = new Todo(obj);
   
 
