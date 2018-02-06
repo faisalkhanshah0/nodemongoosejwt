@@ -88,6 +88,18 @@ router.post('/add', function(req, res, next) {
 });
 
 
+// private routes starts here
+
+var { authenticate } = require('.././middleware/authenticate');
+
+router.get('/me', authenticate, function(req, res, next) {
+
+    res.send(req.user);
+  
+});
+
+// private routes ends here
+
 // Delete routing
 
 router.get('/delete', function(req, res, next) {
